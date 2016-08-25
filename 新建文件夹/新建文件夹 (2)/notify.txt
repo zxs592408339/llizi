@@ -1,0 +1,37 @@
+=====================7.14==============================
+一、广播 BroadCastReceiver
+       动态广播  1.实现
+                      第一步: 广播接收者
+                      第二步: 注册
+                      第三步：发送广播
+                      第四步: 注销
+
+                 2.动态广播和静态广播区域和特点
+
+       广播生命周期
+           onReceive()不能写耗时操作
+
+       广播类型
+           无序(普通)广播
+           有序广播
+           异步(粘性)广播
+
+       广播注册注销
+
+    本地广播 LocalBroadcastManager
+       区别:实现机制不一样  BroadcastReceiver       用Binder机制    应用进程之间进行信息广播
+                            LocalBroadcastReceiver  用Handler机制   本应用中进行信息广播
+
+二、通知 Notification
+    1.理解什么是notification
+          另外一种UI交互方式
+    2.怎么创建发送通知
+         NotificationCompat.Builder
+         Notification
+         NotificationManager
+         notificationManager.notify(id,notification);
+
+         PendingIntent 通知行为事件处理
+
+    3.更新通知
+    4.移除通知

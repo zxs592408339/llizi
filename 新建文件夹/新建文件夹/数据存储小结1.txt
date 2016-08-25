@@ -1,0 +1,83 @@
+/////////////////////6.29////////////////
+数据持久存储
+
+一、数据库Sqlite存储
+    1.了解SQLite数据库
+    2.三种方式操作SQLite数据库
+         第一种: 命令行   1>环境变量path
+                          2.adb shell
+                          3.sqlite3.exe 打开数据库
+
+         第二种:可视化操作 1>Android Device Monitor
+                           2>File Exploe    /data/data/com.ittx.android1601/databases/android1601.db
+                           3>DatabaseBrowser工具使用
+
+         第三种：代码操作   1>创建数据库
+                                 数据库核心类  SQLiteDataBase
+                                 数据库辅助类  SQLiteOpenHelper
+                              操作步骤：
+                               第一步:
+                              public class DataBaseHelper extends SQLiteOpenHelper{
+                                    private static final String DATABASE_NAME = "android1601.db";
+                                    private static final int DATABASE_VERSION = 1;
+                                    private static String createUserTabelSQL = "create table " + DataColumn.UserTable.TABLE_NAME_USER
+                                                + "("
+                                                + DataColumn.UserTable._ID + " Integer NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                                                + DataColumn.UserTable.COLUMN_NAME_NAME + " varchar(20),"
+                                                + DataColumn.UserTable.COLUMN_NAME_PASSWORD + " varchar(6) "
+                                                + ")";
+                                    public DataBaseHelper(Context context){
+                                         super(context,DATABASE_NAME,null,DATABASE_VERSION);
+                                    }
+                                    public void onCreate(SQLiteDataBase db){
+                                         //创建表操作
+                                         db.excSQL(createUserTabelSQL);
+                                    }
+                                    public void onUpgrade(SQLiteDataBase db,int oldVersion,int newVersion){
+                                         //升级数据库操作
+                                         db.excSQL("sql语句")
+                                    }
+
+                              }
+
+                               第二步:
+                                  DataBaseHelper databaseHelper = new DataBaseHelper(Context);
+                                  SQLiteDataBase db = databaseHelper.getReadableDatabase();
+
+                             2>增加数据
+                                  ContentValues cv = new ContentValues();
+                                  cv.put("_id",1);
+                                  cv.put("name","张三");
+                                  cv.put("password",123456);
+                                  db.insert("user",null,cv);
+
+                             3>查询数据
+                                 String[] colums = new String[]{"_id","name","password"};
+                                 String selectClause = "name = ? and password = ?";
+                                 String[] selectArgs = new String[]{"张三","123456"};
+                                 String groupby = null;
+                                 String having = null;
+                                 String orderby = null; //ASC, DESC
+
+                                 Cursor c = db.query("user",colums,selctCaluse,selectArgs,groupby,having,orderby);
+
+                                 boolean isOk = c.moveToNext();
+                                 if(isOk){
+                                    //用户存在
+                                 }else{
+                                    //用户不存在
+                                 }
+
+二、SharePreference
+     key-value
+        //实例化SharedPreferences对象
+        mSharedPreferences = getSharedPreferences("com.ittx.android1601.PREFERENCES",MODE_PRIVATE);
+
+        //保存数据到SharedPreferences
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString("MESSAGE",msg);
+        editor.putInt("AGE",23);
+        editor.commit();
+
+        //从SharedPreferences获取数据
+        String message = mSharedPreferences.getString("MESSAGE","");

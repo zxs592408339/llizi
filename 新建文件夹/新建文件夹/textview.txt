@@ -1,0 +1,40 @@
+一、让TextView显示一行，?是文字超过TextView的长度怎么办？
+1.在开头显示省略号
+android:singleLine="true" ?
+android:ellipsize="start" ?
+
+2.在结尾显示省略号
+android:singleLine="true" ?
+android:ellipsize="end" ?
+
+3.在中间显示省略号
+android:singleLine="true" ?
+android:ellipsize="middle" ?
+
+4.横向自动滚动（跑马灯效果）
+android:singleLine="true" ?
+android:ellipsize="marquee" ?
+android:marqueeRepeatLimit="marquee_forever" ?
+android:focusable="true" ?
+android:focusableInTouchMode="true" ?
+以上4个效果都要加上 android:singleLine="true"，因为TextView默认是?自动换行的
+android:ellipsize是设置文字过长时，该怎么显示
+android:marqueeRepeatLimit="marquee_forever"是设置永远重复，当然à也可以设置具ó的数字
+android:focusable="true"和android:focusableInTouchMode="true"一定要加上，不然滚动效果出不来
+
+5.怎么让TextView可以垂直滚动？
+在Java代码中加入下面一句话就可以实现垂直滚动
+textView.setMovementMethod(ScrollingMovementMethod.getInstance()); ?
+
+6.RichTextView（富文本）
+怎么实现在同一个TextView中设置不同的字ó风格呢？
+需要?用的类：android.text.Spanned; ???? android.text.SpannableString; ????? android.text.SpannableStringBuilder
+SpannableString和SpannableStringBuilder的区别就相当于String和StringBuffer
+SpannableString和SpannableStringBuilder可以用来设置不同的Span，这些Span便是用于实现Rich TextView，比如粗ó，斜ó，前景色，背景色，字ó大小，字ó风格等等，android.text.style.*中定义了很多的Span类型可供?用。
+常见的Span见下面的Demo
+setSpan(Object what, int start, int end, int flags)中的flags可以设为0或Spanned中定义的值
+Spanned.SPAN_EXCLUSIVE_EXCLUSIVE --- 不包含两端start和end所在的端点
+Spanned.SPAN_EXCLUSIVE_INCLUSIVE --- 不包含start，?包含end
+Spanned.SPAN_INCLUSIVE_EXCLUSIVE --- 包含start，?不包含end
+Spanned.SPAN_INCLUSIVE_INCLUSIVE--- 包含start和end所在的端点
+其中0就相当于Spanned.SPAN_INCLUSIVE_INCLUSIVE

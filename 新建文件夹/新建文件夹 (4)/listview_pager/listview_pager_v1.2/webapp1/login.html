@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>表单</title>
+		<style type="text/css">
+			div#container{width:300px;background-color:#99bbbb;}
+		</style>
+		<script>
+		   function myFunction()
+			{
+			   //alert("Hello World!");
+			   window.MyJavaScriptInterface.showToast();
+			}
+		</script>
+	</head>
+	
+	<body >
+		<div id="container" align="center" >
+			<br/>
+			<br/>
+			<form name="input" onclick="myFunction()" action="http://it.warmtel.com" method="post">
+				<p>用户名:<input type="text" name="user" value=""/></p> 
+				 
+				<p>密  码:<input type="password" name="psw" value=""/></p>
+				
+				<p><input type="radio" name="sex" value="男" /> 性别</p>
+				
+				<input type="submit" value="提交" />
+				
+			</form>
+			<button onclick="myFunction()">点击这里</button>
+			<br/>
+			<br/>
+			
+		</div>
+		<div >
+		<ul>
+		        <li>撑握 表单get,Post请求Servlet响应方式</li>
+				<li>点击提交按钮，请求LoginSerlvet验证登录信息.</li>
+				<li>用户名输入“admin” 登录成功</li>
+			</ul>
+		</div>
+	</body>
+</html>
+</html>

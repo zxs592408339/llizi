@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+	<servlet>
+		<servlet-name>TimeServlet</servlet-name>
+		<servlet-class>com.ittx.TimeServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>TimeServlet</servlet-name>
+		<url-pattern>/basic/time</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

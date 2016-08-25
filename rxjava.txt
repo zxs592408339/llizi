@@ -1,0 +1,51 @@
+Rx的全称是Reactive Extensions，直译过来就是响应式扩展。
+Rx基于观察者模式，他是一种编程模型，目标是提供一致的编程接口，帮助开发者更方便的处理异步数据流。
+
+那么RxJava到底是什么，我对于他的理解就针对于Java语言的一个异步的响应式编程库。
+
+在RxJava中，一个实现了Observer接口的对象可以订阅(subscribe)一个Observable 类的实例。订阅者(subscriber)对Observable发射(emit)的任何数据或数据序列作出响应。这种模式简化了并发操作，因为它不需要阻塞等待Observable发射数据，而是创建了一个处于待命状态的观察者哨兵，哨兵在未来某个时刻响应Observable的通知。
+
+
+观察者       被观察者    订阅
+Observer   Observerable
+
+粉丝          明星博主
+        (关注)
+      明星发送信息所有关注的粉丝都可以收到
+
+
+
+
+
+
+
+ public void doRxCreateLoadBitmap() {
+        //创建被观察者
+        Observable.create(new Observable.OnSubscribe<Bitmap>() {
+            @Override
+            public void call(Subscriber<? super Bitmap> subscriber) {
+                Bitmap bitmap = doDownLoadPictrue(mImageUrl);
+                subscriber.onNext(bitmap);
+                subscriber.onCompleted();
+                Log.i(" call ---> ", "运行在 " + Thread.currentThread().getName() + " 线程");
+            }
+        }).subscribeOn(Schedulers.io()) // 指定subscribe()发生在IO线程
+        .observeOn(AndroidSchedulers.mainThread()) // 指定Subscriber的回调发生在UI线程
+        .subscribe(new Observer<Bitmap>() {         //注册创建的观察者
+            @Override
+            public void onCompleted() {
+                Log.i(" onCompleted ---> ", "完成");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(" onError --->", e.toString());
+            }
+
+            @Override
+            public void onNext(Bitmap o) {
+                Log.i(" onNext ---> ", "运行在 " + Thread.currentThread().getName() + " 线程");
+                mGetImg.setImageBitmap(o);
+            }
+        });
+    }

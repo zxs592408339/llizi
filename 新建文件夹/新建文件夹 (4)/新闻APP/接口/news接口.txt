@@ -1,0 +1,211 @@
+ 项目描述:
+
+       仿网易新闻，今日头条手机App客户端,实现类似界面效果和功能.
+       界面效果图参考新闻快讯.
+
+      接口定义如下:
+      新闻模块:
+            1.头条新闻列表接口
+              参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 20; //页大小，显示每页多少条数据
+                           String news_type_id = "T1348647909107";  //新闻类型标识, 此处表示头条新闻
+             请地址: "http://c.m.163.com/nc/article/headline/"+ news_type_id +"/"+pageNo*pageSize+ "-"  +pageSize+ ".html"
+             请求方式:Get
+            例如: http://c.m.163.com/nc/article/headline/T1348647909107/0-20.html    //表示请求头条新闻第一页20条数据
+                   http://c.m.163.com/nc/article/headline/T1348647909107/20-20.html    //表示请求头条新闻第二页20条数据
+                   http://c.m.163.com/nc/article/headline/T1348647909107/40-20.html    //表示请求头条新闻第三页20条数据
+
+            2.头条新闻内容接口     
+                参数定义:
+
+                int docid =   A90HHI6I00014SEH ; //新闻ID ,从新闻列表项目获取
+               请地址: "http://c.m.163.com/nc/article/"+docid +"full.html"
+              请求方式:Get
+              例如: http://c.m.163.com/nc/article/A90HHI6I00014SEH/full.html    //获取新闻ID docid为A90HHI6I00014SEH的新闻内容
+
+          3.  娱乐新闻列表接口
+
+                      参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 20; //页大小，显示每页多少条数据
+                           String news_type_id = "T1348648517839 ";  //新闻类型标识, 此处表示娱乐新闻
+                      请地址: "http://c.m.163.com/nc/article/list/"+news_type_id +pageNo*pageSize+ "-" +pageSize+ ".html"
+                      请求方式:Get
+                      例如: http://c.m.163.com/nc/article/list/T1348648517839/0-20.html     //表示请求娱乐新闻第一页20条数据
+                                http://c.m.163.com/nc/article/list/T1348648517839/20-20.html    //表示请求娱乐 新闻第二页20条数据
+
+
+           4.  体育新闻列表接口
+
+                    参数定义:                            
+                       int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                       int pageSize = 20; //页大小，显示每页多少条数据                          
+                       String news_type_id = "T1348649079062";  //新闻类型标识, 此处表示娱乐新闻
+                    请地址: "http://c.m.163.com/nc/article/list/"+news_type_id +pageNo*pageSize+ "-" +pageSize+ ".html"                      
+                    请求方式:Get
+                      例如:  http://c.m.163.com/nc/article/list/T1348649079062/0-20.html     //表示请求新闻第一页20条数据
+                                 http://c.m.163.com/nc/article/list/T1348649079062/20-20.html    //表示请求 新闻第二页20条数据
+
+         5. 财经新闻列表接口
+
+                      参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 20; //页大小，显示每页多少条数据
+                           String news_type_id = "T1348648756099";  //新闻类型标识, 此处表示娱乐新闻
+                      请地址: "http://c.m.163.com/nc/article/list/"+news_type_id +pageNo*pageSize+ "-" +pageSize+ ".html"
+                      请求方式:Get
+                      例如:  http://c.m.163.com/nc/article/list/T1348648756099/0-20.html     //表示请求新闻第一页20条数据
+                                 http://c.m.163.com/nc/article/list/T1348648756099/20-20.html    //表示请求 新闻第二页20条数据
+
+          6. 科技新闻列表接口
+
+                      参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 20; //页大小，显示每页多少条数据
+                           String news_type_id = "T1348649580692";  //新闻类型标识, 此处表示娱乐新闻
+                      请地址: "http://c.m.163.com/nc/article/list/"+news_type_id +pageNo*pageSize+ "-" +pageSize+ ".html"
+                      请求方式:Get
+                      例如:  http://c.m.163.com/nc/article/list/T1348649580692/0-20.html     //表示请求新闻第一页20条数据
+                                 http://c.m.163.com/nc/article/list/T1348649580692/20-20.html    //表示请求 新闻第二页20条数据
+
+
+
+
+
+
+
+      图片模块:
+            1.精选图片列表接口
+              请求地址: http://api.sina.cn/sinago/list.json
+              请求参数: channel=hdpic_toutiao
+                               &adid=4ad30dabe134695c3b7c3a65977d7e72
+                               &wm=b207
+                               &from=6042095012
+                               &chwm=12050_0001
+                               &oldchwm=
+                               &imei=867064013906290
+                               &uid=802909da86d9f5fc
+                               &p=
+             请求方式:Get
+            例如: http://api.sina.cn/sinago/list.json?channel=hdpic_toutiao&adid=4ad30dabe134695c3b7c3a65977d7e72&wm=b207&from=6042095012&chwm=12050_0001&oldchwm=&imei=867064013906290&uid=802909da86d9f5fc&p=
+
+            1.精选图片列表接口              请求地址: http://api.sina.cn/sinago/list.json
+              请求参数: channel=hdpic_toutiao
+                               &adid=4ad30dabe134695c3b7c3a65977d7e72
+                               &wm=b207
+                               &from=6042095012
+                               &chwm=12050_0001
+                               &oldchwm=
+                               &imei=867064013906290
+                               &uid=802909da86d9f5fc
+                               &p=
+             请求方式:Get
+            例如: http://api.sina.cn/sinago/list.json?channel=hdpic_toutiao&adid=4ad30dabe134695c3b7c3a65977d7e72&wm=b207&from=6042095012&chwm=12050_0001&oldchwm=&imei=867064013906290&uid=802909da86d9f5fc&p=
+
+         2.趣图列表接口
+              请求地址: http://api.sina.cn/sinago/list.json
+              请求参数: 
+             请求方式:Get
+             例如: http://api.sina.cn/sinago/list.json?channel=hdpic_funny&adid=4ad30dabe134695c3b7c3a65977d7e72&wm=b207&from=6042095012&chwm=12050_0001&oldchwm=12050_0001&imei=867064013906290&uid=802909da86d9f5fc&p=
+
+       3.美图列表接口              请求地址: http://api.sina.cn/sinago/list.json
+              请求参数: 
+             请求方式:Get
+             例如: http://api.sina.cn/sinago/list.json?channel=hdpic_pretty&adid=4ad30dabe134695c3b7c3a65977d7e72&wm=b207&from=6042095012&chwm=12050_0001&oldchwm=12050_0001&imei=867064013906290&uid=802909da86d9f5fc&p=
+
+       4.故事列表接口              请求地址: http://api.sina.cn/sinago/list.json
+              请求参数: 
+             请求方式:Get
+             例如: http://api.sina.cn/sinago/list.json?channel=hdpic_story&adid=4ad30dabe134695c3b7c3a65977d7e72&wm=b207&from=6042095012&chwm=12050_0001&oldchwm=12050_0001&imei=867064013906290&uid=802909da86d9f5fc&p=
+
+         5.图片详情接口              
+              请求地址: http://api.sina.cn/sinago/article.json
+              请求参数:   postt=hdpic_hdpic_toutiao_4
+                                &wm=b207
+                                &from=6042095012
+                                &chwm=12050_0001
+                                &oldchwm=12050_0001
+                                &imei=867064013906290
+                                &uid=802909da86d9f5fc
+                               &id=          //对应图片列表某项ID字段  如：精选图片列表接口第一项数据 id: "2841-75964-hdpic",
+              请求方式:Get
+              例如: http://api.sina.cn/sinago/article.json?postt=hdpic_hdpic_toutiao_4&wm=b207&from=6042095012&chwm=12050_0001&oldchwm=12050_0001&imei=867064013906290&uid=802909da86d9f5fc&id=2841-75964-hdpic
+
+
+
+
+视频模块接口
+
+           1.热点视频列表接口
+              参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 10; //页大小，显示每页多少条数据
+                           String video_type_id = "V9LG4B3A0";  //视频类型标识, 此处表示热点视频 
+             请地址: "http://c.3g.163.com/nc/video/list/"+ video_type_id + "/n/" +pageNo*pageSize+ "-"  +pageSize+ ".html"
+             请求方式:Get
+            例如: http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/0-10.html    //表示请求热点视频 第一页10条数据
+                   http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/10-10.html     //表示请求热点视频 第二页10条数据
+                   http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/20-10.html     //表示请求热点视频 第三页10条数据
+
+
+
+
+          2.娱乐视频列表接口              参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 10; //页大小，显示每页多少条数据
+                           String video_type_id = "V9LG4CHOR";  //视频类型标识
+             请地址: "http://c.3g.163.com/nc/video/list/"+ video_type_id + "/n/" +pageNo*pageSize+ "-"  +pageSize+ ".html"
+             请求方式:Get
+            例如: http://c.3g.163.com/nc/video/list/V9LG4CHOR/n/0-10.html    //表示请求 视频 第一页10条数据
+                   http://c.3g.163.com/nc/video/list/V9LG4CHOR/n/10-10.html     //表示请求 视频 第二页10条数据
+                   http://c.3g.163.com/nc/video/list/V9LG4CHOR/n/20-10.html     //表示请求 视频 第三页10条数据
+
+
+
+
+         3.搞笑视频列表接口              参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 10; //页大小，显示每页多少条数据
+                           String video_type_id = "V9LG4E6VR";  //视频类型标识, 
+             请地址: "http://c.3g.163.com/nc/video/list/"+ video_type_id + "/n/" +pageNo*pageSize+ "-"  +pageSize+ ".html"
+             请求方式:Get
+            例如: http://c.3g.163.com/nc/video/list/V9LG4E6VR/n/0-10.html    //表示请求 视频 第一页10条数据
+                   http://c.3g.163.com/nc/video/list/V9LG4E6VR/n/10-10.html     //表示请求视频 第二页10条数据
+                   http://c.3g.163.com/nc/video/list/V9LG4E6VR/n/20-10.html     //表示请求视频 第三页10条数据
+
+
+
+
+
+
+         4.精品视频列表接口              参数定义: 
+                           int pageNo = 0; //页号 ，表示第几页,第一页从0开始
+                           int pageSize = 10; //页大小，显示每页多少条数据
+                           String video_type_id = "00850FRB";  //视频类型标识, 此处表示精品视频
+             请地址: "http://c.3g.163.com/nc/video/list/"+ video_type_id + "/n/" +pageNo*pageSize+ "-"  +pageSize+ ".html"
+             请求方式:Get
+            例如: http://c.3g.163.com/nc/video/list/00850FRB/n/0-10.html    //表示请求 精品视频 第一页10条数据
+                   http://c.3g.163.com/nc/video/list/00850FRB/n/10-10.html     //表示请求 精品视频 第二页10条数据
+                   http://c.3g.163.com/nc/video/list/00850FRB/n/20-10.html     //表示请求 精品视频 第三页10条数据
+
+
+
+
+实时天气接口
+接口地址：http://api.36wu.com/Weather/GetWeather
+http请求方式：POST|GET
+支持格式：json|xml
+示 例：http://api.36wu.com/Weather/GetWeather?district=%E5%8C%97%E4%BA%AC
+             http://api.36wu.com/Weather/GetWeather?district=成都
+接口参数
+参数	数据类型	是否必须	默认值	格式举例	含义
+district	string	是	无	区域:北京、海淀、上海（必须编码） 或区域Id	检索地区气象
+output	string	否	json	json或xml	根据output参数返回相应xml对象或json对象
+authkey	string	否	无		商用或试用的authkey，无authkey参数情况下每小时访问仅限20次，点击申请authkey
+返回结果:
+{"status":200,"message":"OK","data":{"dateTime":"2014年11月7日","city":"成都","temp":"16℃","minTemp":"12℃","maxTemp":"19℃","weather":"多云","windDirection":"东风","windForce":"2级","humidity":"73%","img_1":"1","img_2":"1","refreshTime":"11:45"}}9580692/20-20.html    //表示请求 新闻第二页20条数据
+
+
+
+

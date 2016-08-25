@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee">
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.scxh.java1503.LoginServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>PrintServlet</servlet-name>
+		<servlet-class>com.scxh.java1503.PrintServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JsonServlet</servlet-name>
+		<servlet-class>com.scxh.java1503.JsonServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MerchantServlet</servlet-name>
+		<servlet-class>com.scxh.java1503.MerchantServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PageServlet</servlet-name>
+		<servlet-class>com.scxh.java1503.page.PageServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PrintServlet</servlet-name>
+		<url-pattern>/print</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>JsonServlet</servlet-name>
+		<url-pattern>/jsonurl</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MerchantServlet</servlet-name>
+		<url-pattern>/merchant</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PageServlet</servlet-name>
+		<url-pattern>/page</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

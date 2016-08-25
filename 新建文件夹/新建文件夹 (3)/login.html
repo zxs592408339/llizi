@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>表单</title>
+    <style type="text/css">
+        div#container{width:300px;background-color:#99bbbb;}
+    </style>
+    <script>
+		   function myFunction()
+			{
+			   //alert("Hello World!");
+			   window.MyJavaScriptInterface.showToast();
+			   //window:浏览器窗口对象
+			   //MyJavaScriptInterface：js与原生android应用交互的接口名
+			   //showToast: js与原生android应用交互的接口的方法名
+			}
+			function getUrlByNative(){
+				var url = window.MyJavaScriptInterface.htmlToNativeToJs();
+				window.location.href = url; //跳转到指定url
+			}
+	         function testByNative(){
+				window.location.href = "http://it.warmtel.com"; //跳转到指定url
+			}
+
+    </script>
+</head>
+
+<body>
+<div id="container" align="center">
+    <br/>
+    <br/>
+    <form name="input" onclick="myFunction()" action="http://it.warmtel.com" method="post">
+        <p>用户名:<input type="text" name="user" value=""/></p>
+
+        <p>密 码:<input type="password" name="psw" value=""/></p>
+
+        <p><input type="radio" name="sex" value="男"/> 性别</p>
+
+        <input type="submit" value="提交"/>
+
+    </form>
+    <button onclick="myFunction()">点击这里</button>
+    <button onclick="getUrlByNative()">从原生应用获取URL地址执行跳转</button>
+    <br/>
+    <br/>
+
+</div>
+<div>
+    <ul>
+        <li>撑握 表单get,Post请求Servlet响应方式</li>
+        <li>点击提交按钮，请求LoginSerlvet验证登录信息.</li>
+        <li>用户名输入“admin” 登录成功</li>
+    </ul>
+</div>
+</body>
+</html>
+</html>

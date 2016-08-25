@@ -1,0 +1,32 @@
+ ===========================16.8.2=========================
+  1.为什么引入Fragment碎片？
+  2.Fragment理解 小型Activity拥有自己的生命周期，需要嵌入Activity中运行.
+  3.Fragment使用
+      两种试:静态嵌入      xml
+             动态嵌入      FragmentManager  v4
+
+  4.Fragment生命周期                    Activity生命周期
+       onAttach()
+       onCreate()                           onCreate()
+       onCreateView() 必须实现
+       onActivityCreated()   ---
+       onStart()                            onStart()
+       onResume()                           onResume()
+
+       onPause()                            onPause()
+       onStop()                             onStop()
+       onDestoryView()
+       onDestory()                          onDestory()
+       onDetach()
+
+  5.Fragment操作方法
+     add(id,fragment)
+     remove(fragment)
+     replace(id,newFragment)
+     show()
+     hide()
+
+  6.Fragment参数传递
+    两种形式：   Activity -> Fragment       setArguments(Bundle) ->  getArguments()
+                 Fragment -> Activity
+                 FragmentA <- Activity ->FragmentB

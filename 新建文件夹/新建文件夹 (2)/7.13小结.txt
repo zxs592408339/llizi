@@ -1,0 +1,26 @@
+=====================16.7.13============================
+一、AIDL  (Android  Interface  Definition  Language)
+    1.什么是AIDL ----  Android接口定义语言定义两个应用进程之间通讯的规则.
+    2.怎么使用定义AIDL,相关步骤
+        第一步:创建 *.aidl 文件
+        第二步:定义实现类A继续Stub类实现相关接口方法
+        第三步:定义服务通过onBind返回Stub实现类A的实例并且在manifest.xml文件中注册服务.
+        第四步:调用类绑定服务通过接口方法进行通讯.
+
+二、BroadCastReceiver 广播
+    1.什么是BroadCastReceiver.
+       ---- 对发送过来的广播消息进行接收过滤并进行处理的一类组件。
+       -----BoradCastReceiver是四大组件之一,用于接收、过滤和进行处理广播消息.
+    2.怎么使用广播
+        第一步:实现广播接收者
+           public class MyBroadCastReceiver extends BroadCastReceiver{
+                 public void onReceive(Context context,Intent intent){
+                       //接收、过滤和进行处理广播消息.
+                 }
+           }
+
+        第二步:注册广播
+
+        第三步:发送广播
+                 系统发送 如：短信通知，电量变化
+                 自己发送 sendBroadReceiver(new Intent("com.ittx.android1601.BroadCastReceiverDEMO"));

@@ -1,0 +1,12 @@
+http://192.168.5.8/app/merchant?jsonName=user
+GET
+0
+HTTP/1.1 200 OK
+7
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=6FBF11024A3BDAB3A37D9167C3049ACA; Path=/app
+Content-Type: text/html;charset=utf-8
+Transfer-Encoding: chunked
+Date: Thu, 25 Aug 2016 08:41:21 GMT
+OkHttp-Sent-Millis: 1472114481793
+OkHttp-Received-Millis: 1472114481796
